@@ -3,7 +3,7 @@
 
     Set up the demo page for the A* Search
 */
-/* global Graph, astar, $ */
+/* global A, $ */
 
 var WALL = 0,
     performance = window.performance;
@@ -25,7 +25,7 @@ $(function() {
         closest: $checkClosest.is("checked")
     };
 
-    var grid = new GraphSearch($grid, opts, astar.search);
+    var grid = new GraphSearch($grid, opts, A.astar.search);
 
     $("#btnGenerate").click(function() {
         grid.initialize();
@@ -126,7 +126,7 @@ GraphSearch.prototype.initialize = function() {
         nodes.push(nodeRow);
     }
 
-    this.graph = new Graph(nodes);
+    this.graph = new A.Graph(nodes);
 
     // bind cell event, set start/wall positions
     this.$cells = $graph.find(".grid_item");
